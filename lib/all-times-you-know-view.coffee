@@ -1,5 +1,4 @@
 {CompositeDisposable} = require 'atom'
-request = require 'request'
 
 class AllTimesYouKnowView
 
