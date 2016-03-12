@@ -18,9 +18,11 @@ class AllTimesYouKnowView
         @background.style.backgroundImage = 'url(' + @image + ')'
 
     stopRefresh: =>
-        clearInterval @refreshInterval
+        if @refreshInterval
+            clearInterval @refreshInterval
 
     startRefresh: =>
+        @stopRefresh()
         @refreshRate = atom.config.get('all-times-you-know.refreshRate')
         @refreshInterval = setInterval @refresh, @refreshRate
 
