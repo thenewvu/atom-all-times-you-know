@@ -2,7 +2,7 @@
   "name": "all-times-you-know",
   "author": "Vu Le <thenewvu@gmail.com>",
   "main": "./lib/all-times-you-know",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "A simple package that just changes the Atom's background but in a too awesome way.",
   "keywords": ["eye-candy", "background", "image"],
   "repository": "https://github.com/thenewvu/atom-all-times-you-know",
