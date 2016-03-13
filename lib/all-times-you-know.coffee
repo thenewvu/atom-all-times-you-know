@@ -18,9 +18,9 @@ module.exports = AllTimesYouKnow =
             default: 768
         refreshRate:
             title: 'Refresh Rate'
-            description: 'How often the background is refreshed (in milliseconds).'
+            description: 'How often the background is refreshed (in seconds).'
             type: 'number'
-            default: 60000
+            default: 120
 
     allTimesYouKnowView: null
     subscriptions: null

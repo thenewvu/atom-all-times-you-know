@@ -1,4 +1,5 @@
 {CompositeDisposable} = require 'atom'
+request = require 'request'
 
 class AllTimesYouKnowView
 
@@ -7,15 +8,27 @@ class AllTimesYouKnowView
         @background = document.createElement('div')
         @background.classList.add('all-times-you-know')
 
+        @refreshing = false
         @refresh()
         @startRefresh()
 
     refresh: =>
-        @topics = atom.config.get('all-times-you-know.topics')
-        @screenWidth = atom.config.get('all-times-you-know.screenWidth')
-        @screenHeight = atom.config.get('all-times-you-know.screenHeight')
-        @image = "http://loremflickr.com/#{@screenWidth}/#{@screenHeight}/#{@topics}?#{Math.random()}"
-        @background.style.backgroundImage = 'url(' + @image + ')'
+        return if @refreshing
+        @refreshing = true
+
+        topics = atom.config.get('all-times-you-know.topics')
+        screenWidth = atom.config.get('all-times-you-know.screenWidth')
+        screenHeight = atom.config.get('all-times-you-know.screenHeight')
+        image = "http://loremflickr.com/#{screenWidth}/#{screenHeight}/#{topics}?#{Math.random()}"
+
+        request {url: image, encoding: null}, (err, res, body) =>
+            if res && res.statusCode == 200
+                contentType = res.headers["content-type"]
+                base64 = new Buffer(body).toString('base64')
+                data = "url(\"data:#{contentType};base64,#{base64}\")"
+                @background.style.backgroundImage = data
+
+            @refreshing = false
 
     stopRefresh: =>
         if @refreshInterval
@@ -23,7 +36,7 @@ class AllTimesYouKnowView
 
     startRefresh: =>
         @stopRefresh()
-        @refreshRate = atom.config.get('all-times-you-know.refreshRate')
+        @refreshRate = atom.config.get('all-times-you-know.refreshRate') * 1000
         @refreshInterval = setInterval @refresh, @refreshRate
 
     # Returns an object that can be retrieved when package is activated
