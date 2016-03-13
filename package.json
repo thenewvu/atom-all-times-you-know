@@ -1,10 +1,11 @@
 {
   "name": "all-times-you-know",
+  "author": "Vu Le <thenewvu@gmail.com>",
   "main": "./lib/all-times-you-know",
   "version": "0.0.0",
-  "description": "A short description of your package",
-  "keywords": [],
-  "repository": "https://github.com/atom/all-times-you-know",
+  "description": "A simple package that just changes the Atom's background but in a too awesome way.",
+  "keywords": ["eye-candy", "background", "image"],
+  "repository": "https://github.com/thenewvu/atom-all-times-you-know",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
