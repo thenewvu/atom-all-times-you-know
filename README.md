@@ -4,7 +4,7 @@ A simple package that just changes the Atom's background but in a too awesome wa
 
 **If you love this package, please star my repo on Github, I have some reasons to really need this. Thank you.**
 
-![Atom - All Times You Know](https://giant.gfycat.com/FemaleDifficultAlbertosaurus.gif)
+![Atom - All Times You Know](https://github.com/thenewvu/atom-all-times-you-know/raw/master/screenshots/atom-all-times-you-know.gif)
 
 ## Features
 
