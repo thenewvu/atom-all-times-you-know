@@ -2,6 +2,8 @@
 
 A simple package that just changes the Atom's background but in a too awesome way.
 
+**If you love this package, please star my repo on Github, I have some reasons to really need this. Thank you.**
+
 ![Atom - All Times You Know](https://giant.gfycat.com/FemaleDifficultAlbertosaurus.gif)
 
 * Background images that matches your own type.
