@@ -6,15 +6,11 @@ A simple package that just changes the Atom's background but in a too awesome wa
 
 ![Atom - All Times You Know](https://giant.gfycat.com/FemaleDifficultAlbertosaurus.gif)
 
+## Features
+
 * Background images that matches your own type.
 * Automatically change the background in a customizable refresh rate.
 * Change the background on demand by hot-key.
-
-## Hot-keys
-
-* `ctrl + alt + n` - Manually change the background.
-* `ctrl + alt + p` - Stop automatically changing the background.
-* `ctrl + alt + shift + p` - Start automatically changing the background.
 
 ## Configs
 
@@ -22,6 +18,12 @@ A simple package that just changes the Atom's background but in a too awesome wa
 * **Screen Resolution Height** - Specify that images should match this height.
 * **Refresh Rate** - How often the the background will be refreshed (in seconds).
 * **Topics** - Your favorite topics, seperated by commas with no space. For example: `food,nature`.
+
+## Hot-keys
+
+* `ctrl + alt + n` - Manually change the background.
+* `ctrl + alt + p` - Stop automatically changing the background.
+* `ctrl + alt + shift + p` - Start automatically changing the background.
 
 ## Thanks
 
@@ -31,4 +33,4 @@ A simple package that just changes the Atom's background but in a too awesome wa
 
 ## Why that name ?
 
-I love Dota 2. I love Dendi and Puppey. The name comes from ["See You Again" Dendi & Puppey Love story](https://youtu.be/uBp8ZWR7_G8).
+[![See You Again" Dendi & Puppey Love story](http://img.youtube.com/vi/uBp8ZWR7_G8/hqdefault.jpg)](http://www.youtube.com/watch?v=uBp8ZWR7_G8)
