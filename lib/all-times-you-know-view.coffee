@@ -28,7 +28,9 @@ class AllTimesYouKnowView
                 data = "url(\"data:#{contentType};base64,#{base64}\")"
                 @background.style.backgroundImage = data
 
-            @refreshing = false
+        abortRefreshing = () =>
+        @refreshing = false
+        setTimeout abortRefreshing, 10 * 1000
 
     stopRefresh: =>
         if @refreshInterval
