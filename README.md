@@ -31,6 +31,8 @@ A simple package that just changes the Atom's background but in a so awesome way
 
 * [@dankohn](http://stackoverflow.com/users/1935918/dankohn) on [StackOverflow](http://stackoverflow.com/questions/17124053/node-js-get-image-from-web-and-encode-with-base64) - He helped me with a way to download and convert images to base64.
 
+* [loremflickr.com](http://loremflickr.com) - All background images comes from this service.
+
 ## Why that name ?
 
 [![See You Again" Dendi & Puppey Love story](http://img.youtube.com/vi/uBp8ZWR7_G8/hqdefault.jpg)](http://www.youtube.com/watch?v=uBp8ZWR7_G8)
