@@ -28,9 +28,9 @@ class AllTimesYouKnowView
       @sort = sort
       @page = if @current >= @photos.length then (@page + 1) else 1
       if @tags
-        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5d6a54435c9da0c091e94cf2232e94eb&tags=#{@tags}&sort=#{@sort}&media=photos&page=#{@page}&format=json&nojsoncallback=1"
+        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=51cd26c4e3436a0181b17f1cd29ff340&tags=#{@tags}&sort=#{@sort}&media=photos&page=#{@page}&format=json&nojsoncallback=1"
       else
-        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5d6a54435c9da0c091e94cf2232e94eb&text=#{@text}&sort=#{@sort}&media=photos&page=#{@page}&format=json&nojsoncallback=1"
+        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=51cd26c4e3436a0181b17f1cd29ff340&text=#{@text}&sort=#{@sort}&media=photos&page=#{@page}&format=json&nojsoncallback=1"
       console.log url
       request url, (err, res, body) =>
         if res && res.statusCode == 200
