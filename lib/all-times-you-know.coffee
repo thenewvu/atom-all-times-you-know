@@ -3,6 +3,11 @@ AllTimesYouKnowView = require './all-times-you-know-view'
 
 module.exports = AllTimesYouKnow =
   config:
+    group_id:
+      title: 'Group ID'
+      description: 'Only search in this group'
+      type: 'string'
+      default: ''
     tags:
       title: 'Background tags'
       description: 'Seperated by commas with no space.'

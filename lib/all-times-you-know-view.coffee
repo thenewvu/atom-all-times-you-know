@@ -1,5 +1,6 @@
 {CompositeDisposable} = require 'atom'
 request = require 'request'
+url = require 'url'
 
 class AllTimesYouKnowView
 
@@ -11,6 +12,7 @@ class AllTimesYouKnowView
     @tags = null
     @text = null
     @sort = null
+    @group_id = null
     @pages = 0
     @page = 1
     @photos = []
@@ -22,17 +24,34 @@ class AllTimesYouKnowView
     tags = atom.config.get('all-times-you-know.tags')
     text = atom.config.get('all-times-you-know.text')
     sort = atom.config.get('all-times-you-know.sort')
-    if tags != @tags or text != @text or sort != @sort or @current >= @photos.length
+    group_id = atom.config.get('all-times-you-know.group_id')
+    if tags != @tags or text != @text or sort != @sort or group_id != @group_id or @current >= @photos.length
       @tags = tags
       @text = text
       @sort = sort
+      @group_id = group_id
       @page = if @current >= @photos.length then (@page + 1) else 1
-      if @tags
-        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=51cd26c4e3436a0181b17f1cd29ff340&tags=#{@tags}&sort=#{@sort}&media=photos&page=#{@page}&format=json&nojsoncallback=1"
-      else
-        url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=51cd26c4e3436a0181b17f1cd29ff340&text=#{@text}&sort=#{@sort}&media=photos&page=#{@page}&format=json&nojsoncallback=1"
-      console.log url
-      request url, (err, res, body) =>
+      req = {
+        protocol: 'https'
+        hostname: 'api.flickr.com'
+        pathname: 'services/rest/'
+        query: {
+          method: 'flickr.photos.search'
+          api_key: '51cd26c4e3436a0181b17f1cd29ff340'
+          media: 'photo'
+          format: 'json'
+          nojsoncallback: 1
+          sort: @sort
+          page: @page
+        }
+      }
+      @tags and (req.query.tags = @tags)
+      @text and (req.query.text = @text)
+      @group_id and (req.query.group_id = @group_id)
+      console.log req
+      req = url.format(req)
+      console.log req
+      request req, (err, res, body) =>
         if res && res.statusCode == 200
           body = JSON.parse(body)
           console.log body
