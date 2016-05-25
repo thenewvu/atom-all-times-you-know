@@ -5,7 +5,7 @@ module.exports = AllTimesYouKnow =
   config:
     group_id:
       title: 'Group ID'
-      description: 'Only search in this group'
+      description: 'Only search in this group. It MUST be a public group. Public groups are groups that you can find it when not signed in yet'
       type: 'string'
       default: ''
     tags:

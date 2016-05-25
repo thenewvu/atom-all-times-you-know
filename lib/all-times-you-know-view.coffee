@@ -55,21 +55,28 @@ class AllTimesYouKnowView
         if res && res.statusCode == 200
           body = JSON.parse(body)
           console.log body
-          @pages = body.photos.pages
-          @photos = body.photos.photo
-          @current = 0
-        @refresh()
+          if body.stat != 'ok'
+            console.log body.stat
+            atom.notifications.addError("all-times-you-know: #{body.message}")
+          else
+            @pages = body.photos.pages
+            @photos = body.photos.photo
+            @current = 0
+            @refresh()
 
     else
-      image = @photoToUrl(@photos[@current])
-      console.log image
-      request {url: image, encoding: null}, (err, res, body) =>
-        if res && res.statusCode == 200
-          contentType = res.headers["content-type"]
-          base64 = new Buffer(body).toString('base64')
-          data = "url(\"data:#{contentType};base64,#{base64}\")"
-          @background.style.backgroundImage = data
-        @current += 1
+      if @photos and @photos.length > 0
+        image = @photoToUrl(@photos[@current])
+        console.log image
+        request {url: image, encoding: null}, (err, res, body) =>
+          if res && res.statusCode == 200
+            contentType = res.headers["content-type"]
+            base64 = new Buffer(body).toString('base64')
+            data = "url(\"data:#{contentType};base64,#{base64}\")"
+            @background.style.backgroundImage = data
+          @current += 1
+      else
+        atom.notifications.addWarning("all-times-you-know: Could not find any photo by your config")
 
   stopRefresh: =>
     if @refreshInterval
