@@ -45,7 +45,7 @@ class AllTimesYouKnowView
           format: 'json'
           nojsoncallback: 1
           sort: @sort
-          page: @page,
+          page: @page
           extras: @urls.join(',')
         }
       }
@@ -72,8 +72,8 @@ class AllTimesYouKnowView
       if @photos and @photos.length > 0
         photo = @photos[@current]
         image = null
-        for url in @urls by -1
-          image = photo[url]
+        for u in @urls by -1
+          image = photo[u]
           if image
             break
         console.log image
