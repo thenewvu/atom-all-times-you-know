@@ -18,16 +18,10 @@ module.exports = AllTimesYouKnow =
       description: 'Optional included keywords'
       type: 'string'
       default: ''
-    size:
-      title: 'Size of backgrounds'
-      type: 'string'
-      description: 'Read https://www.flickr.com/services/api/misc.urls.html  '
-      default: 'h'
-      enum: ['s', 'q', 't', 'm', 'n', '-', 'z', 'c', 'b', 'h', 'k', 'o']
     sort:
       title: 'Sort order'
       type: 'string'
-      description: 'Read https://www.flickr.com/services/api/flickr.photos.search.html  '
+      description: 'Read https://www.flickr.com/services/api/flickr.photos.search.html'
       default: 'relevance'
       enum: ['date-posted-asc', 'date-posted-desc', 'date-taken-asc', 'date-taken-desc', 'interestingness-desc', 'interestingness-asc', 'relevance']
     refreshRate:
