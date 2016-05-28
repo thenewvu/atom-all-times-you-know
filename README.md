@@ -1,3 +1,6 @@
+**THIS PACKAGE WAS ABANDONED. PLEASE USE [flickr-background](https://atom.io/packages/flickr-background) INSTEAD,**
+
+
 # Atom - All Times You Know
 
 A simple package that just changes the Atom's background but in a so awesome way.
